@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6a408c1b-c284-48c7-9cbc-ba7726b765da": {
+      "ProjectGuid": "6a408c1b-c284-48c7-9cbc-ba7726b765da",
+      "DisplayName": "ExpathAPI",
+      "ColorIndex": 0
+    },
+    "192eee88-f75d-496d-a6c5-99734cd14576": {
+      "ProjectGuid": "192eee88-f75d-496d-a6c5-99734cd14576",
+      "DisplayName": "Expath.DAL",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
