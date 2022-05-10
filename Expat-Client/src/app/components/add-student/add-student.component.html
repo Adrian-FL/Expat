@@ -1,0 +1,47 @@
+<div class="example-container">
+    <h3><b>Add student</b></h3>
+    <div class="form-container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Metamask address
+                </mat-label>
+                <input matInput formControlName="metaMaskPublicAddress">
+                <mat-error *ngIf="submitted && f.metaMaskPublicAddress.errors">
+                    <span *ngIf="f.metaMaskPublicAddress.errors.required">Metamask is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> First name
+                </mat-label>
+                <input matInput formControlName="firstName">
+                <mat-error *ngIf="submitted && f.firstName.errors">
+                    <span *ngIf="f.firstName.errors.required">First name is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Last name
+                </mat-label>
+                <input matInput formControlName="lastName">
+                <mat-error *ngIf="submitted && f.lastName.errors">
+                    <span *ngIf="f.lastName.errors.required">Last name is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Email
+                </mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="submitted && f.email.errors">
+                    <span *ngIf="f.email.errors.required">Email is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Save</button>
+
+
+        </form>
+    </div>
+</div>

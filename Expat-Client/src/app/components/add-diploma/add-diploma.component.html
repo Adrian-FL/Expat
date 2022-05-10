@@ -1,0 +1,35 @@
+<div class="example-container">
+    <h3><b>Add diploma</b></h3>
+    <div class="form-container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Metamask address
+                </mat-label>
+                <mat-select formControlName="metaMaskPublicAddress">
+                    <mat-option *ngFor="let student of students" [value]="student.metaMaskPublicAddress">
+                      {{student.firstName}} {{student.lastName}} ({{student.metaMaskPublicAddress}})
+                    </mat-option>
+                  </mat-select>
+                <!-- <input matInput formControlName="metaMaskPublicAddress"> -->
+                <mat-error *ngIf="submitted && f.metaMaskPublicAddress.errors">
+                    <span *ngIf="f.metaMaskPublicAddress.errors.required">Metamask is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="form-field" appearance="outline"> -->
+            <mat-label> File
+            </mat-label>
+            <input type="file" (change)="onFileChange($event)" />
+            <mat-error *ngIf="submitted && f.file.errors">
+                <span *ngIf="f.file.errors.required">File is mandatory.</span>
+            </mat-error>
+            <!-- </mat-form-field> -->
+            <br/><br/>
+
+            <button mat-raised-button color="primary" type="submit">Save</button>
+
+
+        </form>
+    </div>
+</div>

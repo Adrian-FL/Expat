@@ -1,0 +1,42 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic'
+    rel='stylesheet' type='text/css'>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- The Timeline -->
+
+<ul class="timeline">
+    <!-- Item 1 -->
+
+    <li *ngFor="let event of events">
+
+        <div class="direction-{{event.direction}}">
+            <div class="flag-wrapper">
+                <mat-icon style="color:green" matTooltip="Checked against blockchain"
+                    *ngIf="event.direction==='l' && event.checked">check_circle_outline</mat-icon>
+                <mat-icon style="color:red" matTooltip="There could be a problem"
+                    *ngIf="event.direction==='l' && !event.checked">error_outline</mat-icon>
+                <span class="flag wbg">
+                    {{event.date}}
+                </span>
+                <mat-icon style="color:green" matTooltip="Checked against blockchain"
+                    *ngIf="event.direction==='r' && event.checked">check_circle_outline</mat-icon>
+                <mat-icon style="color:red" matTooltip="There could be a problem"
+                    *ngIf="event.direction==='r' && !event.checked">error_outline</mat-icon>
+                <!--replace wbg with xl for focus-->
+            </div>
+            <!-- <div class="desc"> </div> -->
+            <div *ngIf="event.isDiploma" class="desc" style="display: flex">
+                {{event.text}}
+                <div class="center"><a [routerLink]="['/profile/diploma']" class="dlbtn">View<span class="details">diploma.pdf
+                        </span></a></div>
+            </div>
+
+            <div *ngIf="!event.isDiploma" class="desc">
+                {{event.text}}
+
+            </div>
+        </div>
+    </li>
+
+</ul>

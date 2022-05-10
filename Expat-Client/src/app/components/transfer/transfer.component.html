@@ -1,0 +1,41 @@
+<div class="example-container">
+    <h3><b>Transfer student</b></h3>
+    <div class="form-container">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Student Metamask address
+                </mat-label>
+                <mat-select formControlName="studentMetaMaskPublicAddress">
+                    <mat-option *ngFor="let student of students" [value]="student.metaMaskPublicAddress">
+                        {{student.firstName}} {{student.lastName}} ({{student.metaMaskPublicAddress}})
+                    </mat-option>
+                </mat-select>
+                <!-- <input matInput formControlName="metaMaskPublicAddress"> -->
+                <mat-error *ngIf="submitted && f.studentMetaMaskPublicAddress.errors">
+                    <span *ngIf="f.studentMetaMaskPublicAddress.errors.required">Student Metamask is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="form-field" appearance="outline"> -->
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Faculty Metamask address
+                </mat-label>
+                <mat-select formControlName="facultyMetaMaskPublicAddress">
+                    <mat-option *ngFor="let _faculty of faculty" [value]="_faculty.metaMaskPublicAddress">
+                        {{_faculty.firstName}} ({{_faculty.metaMaskPublicAddress}})
+                    </mat-option>
+                </mat-select>
+                <!-- <input matInput formControlName="metaMaskPublicAddress"> -->
+                <mat-error *ngIf="submitted && f.facultyMetaMaskPublicAddress.errors">
+                    <span *ngIf="f.facultyMetaMaskPublicAddress.errors.required">Faculty Metamask is mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+            <br />
+
+            <button mat-raised-button color="primary" type="submit">Transfer</button>
+
+
+        </form>
+    </div>
+</div>

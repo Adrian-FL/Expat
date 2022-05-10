@@ -1,0 +1,20 @@
+<div class="example-container">
+    <h3><b>View profile</b></h3>
+    <div class="form-container">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Metamask address
+            </mat-label>
+            <mat-select (selectionChange)="reloadUser($event)">
+                <mat-option *ngFor="let student of students" [value]="student.metaMaskPublicAddress">
+                    {{student.firstName}} {{student.lastName}} ({{student.metaMaskPublicAddress}})
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+       
+        <!-- <button mat-raised-button color="primary" type="submit">Save</button> -->
+
+    </div>
+</div>
+
+<app-profile></app-profile>
